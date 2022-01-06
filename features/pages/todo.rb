@@ -4,6 +4,7 @@ class TodoPage < SitePrism::Page
     element :textitemadd, :xpath, '//*[@id="app"]/section/form/input'
     element :additembutton, :xpath, '//*[@id="app"]/section/form/button[2]/i'
     element :itemlist, :xpath, '//*[@id="app"]/section/ul/li[1]'
+    element :searchtask, :xpath, '//*[@id="app"]/section/form/input'
 
     def efetuarLogin(tipo_teste)
         login.set(Base64.decode64(INFO[tipo_teste]["login"]))
@@ -15,4 +16,8 @@ class TodoPage < SitePrism::Page
         textitemadd.set(Base64.decode64(INFO[tipo_teste]["massa"]))
         additembutton.click
     end
+
+    def searchitem(tipo_teste)
+        done.click
+        searchtask.set(Base64.decode64(INFO[tipo_teste]["massa"]))
 end
