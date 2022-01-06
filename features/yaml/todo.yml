@@ -1,8 +1,8 @@
-addOneItem:
+item:
   massa: 'one item'
 
-addVariousItens:
-  massa: 'one; two itens'
-
-noAddItem:
+mais de um item:
+  massa: 'one; two; three; four; five; testeone'
+  
+nenhum item:
   massa: ''
