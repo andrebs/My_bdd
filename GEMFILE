@@ -1,0 +1,10 @@
+source 'http://rubygems.org'
+
+gem 'cucumber'
+gem 'capybara'
+gem 'rspec'
+gem 'selenium-webdriver'
+gem 'capybara-screenshot'
+gem 'pry'
+gem 'site_prism'
+gem 'ci_reporter_cucumber'

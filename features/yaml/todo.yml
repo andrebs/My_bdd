@@ -1,0 +1,8 @@
+addOneItem:
+  massa: 'one item'
+
+addVariousItens:
+  massa: 'one; two itens'
+
+noAddItem:
+  massa: ''
