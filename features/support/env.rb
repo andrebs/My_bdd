@@ -6,7 +6,6 @@ require 'capybara-screenshot/cucumber'
 require 'pry'
 require 'site_prism'
 require 'base64'
-require 'yaml'
 
 INFO = YAML.load_file('./features/yaml/todo.yml')
 
