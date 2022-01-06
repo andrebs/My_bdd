@@ -9,6 +9,11 @@ Dado acesso "DONE"
 Quando eu consulto item
 Entao eu devo ver apenas item consultado
 
+Cenario: Consultar um item por id
+Dado acesso "DONE"
+Quando eu consulto item por id
+Entao eu devo ver apenas item consultado
+
 Cenario: Consultar um item inválido
 Dado acesso "DONE"
 Quando eu consulto um item não cadastrado

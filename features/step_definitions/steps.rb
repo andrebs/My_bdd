@@ -60,3 +60,11 @@ Quando('eu consulto item') do
   Quando('seleciono para excluir item') do
     pending # Write code here that turns the phrase above into concrete actions
   end
+
+  Quando('eu consulto item por id') do
+    pending # Write code here that turns the phrase above into concrete actions
+  end
+  
+  Entao('devo ver item removido da lista') do
+    pending # Write code here that turns the phrase above into concrete actions
+  end
