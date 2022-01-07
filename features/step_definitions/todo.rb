@@ -3,7 +3,7 @@ Dado('acesso {string}') do |funcionalidade|
   end
 
 Quando('adiciono {string}') do |tipo_teste|
-    @todo.additem(tipo_teste)
+    @todo.additem2(tipo_teste)
 end
 
 Quando('seleciono para excluir item') do
