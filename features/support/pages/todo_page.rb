@@ -1,52 +1,35 @@
-include RSpec::Matchers
+class TodoPage < SitePrism::Page
 
-class TodoPage2 < SitePrism::Page
-  set_url ENV["url_padrao"]
+    section :main_page, "#app" do
+        elements :btn_acao, "nav a"
+        element :input_texto, "input[type=text]"
+        element :delete_texto, "button[type=reset]"
+        element :btn_criar_task, "button[type=submit]"
+        elements :task_cadastrada, "li span"
+    end
 
-  section :header, "#app" do
-    elements :btn_acao, "nav a"
-    element :input_texto, "#teste"
-    element :delete_texto, "button[type=reset]"
-    element :btn_criar_task, "button[type=submit]"
-    elements :task_cadastrada, "li span"
-  end
 
-  def carregar_home
-    load
-    wait_until_header_visible
-    expect(header).to have_btn_acao(:count =>2)
-    expect(header).to have_input_texto
-    expect(header).to have_btn_acao
-  end
+    def additem(tipo_teste)
+        case tipo_teste
+        when "item"
+            main_page.input_texto.set $task
+            main_page.btn_criar_task.click
+        else
+            main_page.input_texto.set(INFO[tipo_teste]["massa"])
+            main_page.btn_criar_task.click
+        end
+    end
 
-  def inserir_tarefa
-    header.input_texto.set $task
-    header.btn_criar_task.click
-  end
+    def removepreitem(tipo_teste)
+        
+    end
 
-  def inserir_segunda_tarefa
-    header.input_texto.set $segunda_task
-    header.btn_criar_task.click
-  end
+    def searchitem(tipo_teste)
+        main_page.done.click
+        main_page.searchtask.set(INFO[tipo_teste]["massa"])
+    end
 
-  def verificar_tarefa
-    expect(header.task_cadastrada[0].text).to start_with $task
-  end
-
-  def verificar_tarefas
-    expect(header.task_cadastrada[0].text).to start_with $task
-    expect(header.task_cadastrada[1].text).to start_with $segunda_task
-  end
-
-  def campo_em_branco
-    header.input_texto.set ""
-  end
-
-  def adicionar_lista
-    header.btn_criar_task.click
-  end
-
-  def lista_vazia
-    # expect(header.task_cadastrada[0]).not_to
-  end
+    def validate_todo_list
+        expect(main_page.task_cadastrada[0].text).to start_with $task
+    end
 end

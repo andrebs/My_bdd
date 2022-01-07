@@ -3,7 +3,7 @@ Dado('acesso {string}') do |funcionalidade|
   end
 
 Quando('adiciono {string}') do |tipo_teste|
-    @todo.additem2(tipo_teste)
+    @todo.additem(tipo_teste)
 end
 
 Quando('seleciono para excluir item') do
@@ -11,7 +11,7 @@ Quando('seleciono para excluir item') do
 end
 
 Entao('devo ver item adicionado na lista Done') do
-    @todo.searchitem
+    @todo.validate_todo_list()
 end
 
 Entao('devo ver itens adicionados na lista Done') do
