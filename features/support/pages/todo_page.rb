@@ -1,3 +1,5 @@
+include RSpec::Matchers
+
 class TodoPage < SitePrism::Page
 
     section :main_page, "#app" do
