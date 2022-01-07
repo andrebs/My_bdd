@@ -8,6 +8,7 @@ class TodoPage < SitePrism::Page
         element :delete_texto, "button[type=reset]"
         element :btn_criar_task, "button[type=submit]"
         elements :task_cadastrada, "li span"
+        elements :btn_delete_task, "li button" 
     end
 
 
@@ -22,8 +23,8 @@ class TodoPage < SitePrism::Page
         end
     end
 
-    def removepreitem(tipo_teste)
-        
+    def removertarefa(tipo_teste)
+        main_page.btn_delete_task.click
     end
 
     def searchitem(tipo_teste)
@@ -33,5 +34,9 @@ class TodoPage < SitePrism::Page
 
     def validate_todo_list
         expect(main_page.task_cadastrada[0].text).to start_with $task
+    end
+
+    def validate_result
+        assert_text($task)
     end
 end
