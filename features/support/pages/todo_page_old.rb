@@ -11,6 +11,10 @@ class TodoPage < SitePrism::Page
         additembutton.click
     end
 
+    def removepreitem(tipo_teste)
+        
+    end
+
     def searchitem(tipo_teste)
         done.click
         searchtask.set(INFO[tipo_teste]["massa"])
