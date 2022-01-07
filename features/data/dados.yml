@@ -1,0 +1,8 @@
+item:
+  massa: 'one item'
+
+mais de um item:
+  massa: 'one; two; three; four; five; testeone'
+  
+nenhum item:
+  massa: ''

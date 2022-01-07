@@ -1,13 +1,21 @@
-require 'cucumber'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'capybara-screenshot'
 require 'capybara-screenshot/cucumber'
 require 'pry'
 require 'site_prism'
-require 'base64'
+require "dotenv"
+require "faker"
+require "rspec/expectations"
 
-INFO = YAML.load_file('./features/yaml/todo.yml')
+INFO = YAML.load_file('./features/data/dados.yml')
+
+if ENV["ENV"]
+    puts "Iniciando o teste no ambiente"
+    Dotenv.load("environment/.env." + ENV["ENV"], ".env")
+else
+    Dotenv.load(".env")
+end
 
 Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
@@ -16,6 +24,7 @@ end
 Capybara.configure do |config|
     config.default_driver = :selenium_chrome #_headless
     config.default_max_wait_time= 30
-    Capybara::Screenshot.autosave_on_failure = true
+    config.app_host = ENV["url_padrao"]
+    Capybara::Screenshot.autosave_on_failure = false
     Capybara.page.driver.browser.manage.window.maximize
 end
