@@ -10,19 +10,16 @@ As tarefas serão listadas por ordem de inclusão e as tarefas que forem finaliz
 Contexto: Acessar a página de TO DO
     Dado acesso "ToDo"
 
-Cenario: Adicionar um item
+Cenario: Adicionar uma tarefa
     Quando adiciono "item"
-    Entao devo ver item adicionado na lista Done
+    Entao devo ver item adicionado na lista ToDo
 
-Cenario: Adicionar mais de um item
-    Quando adiciono "mais de um item"
-    Entao devo ver itens adicionados na lista Done
-
-Cenario: Não adicionar item
-    Quando adiciono "nenhum item"
-    Entao devo ver item nao foi adicionado em lista Done
-
-Cenario: Adicionar item e remover em ToDo 
+Cenario: Concluir uma tarefa
     Quando adiciono "item"
-    E seleciono para excluir item
-    Entao não devo ver item na lista Done
+    E concluo a tarefa
+    Entao devo ver item concluído em lista Done
+
+Cenario: Remover uma tarefa
+    Quando adiciono "item"
+    E clico para remover tarefa
+    Entao devo ver tarefa removida com sucesso

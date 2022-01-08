@@ -7,12 +7,14 @@ class TodoPage < SitePrism::Page
         element :input_texto, "input[type=text]"
         element :delete_texto, "button[type=reset]"
         element :btn_criar_task, "button[type=submit]"
+        element :search_task, "input[type=search]"
         elements :task_cadastrada, "li span"
         elements :btn_delete_task, "li button" 
+
     end
 
 
-    def additem(tipo_teste)
+    def adiciona_tarefa(tipo_teste)
         case tipo_teste
         when "item"
             main_page.input_texto.set $task
@@ -23,20 +25,37 @@ class TodoPage < SitePrism::Page
         end
     end
 
-    def removertarefa(tipo_teste)
+    def concluir_tarefa
+        main_page.task_cadastrada[0].click
+        btn_acao[1].click
+        assert_text($task)
+    end
+
+    def removertarefa
         main_page.btn_delete_task.click
     end
 
     def searchitem(tipo_teste)
         main_page.done.click
-        main_page.searchtask.set(INFO[tipo_teste]["massa"])
+
+        case tipo_teste
+        when "item"
+            main_page.searchtask.set $task
+        else
+            main_page.searchtask.set(INFO[tipo_teste]["massa"])
+        end
     end
 
-    def validate_todo_list
+    def validate_todo
         expect(main_page.task_cadastrada[0].text).to start_with $task
+        assert_text($task)
     end
 
-    def validate_result
+    def validate_done
         assert_text($task)
+    end
+
+    def validatarefaremovida
+        assert_text($task) => false
     end
 end

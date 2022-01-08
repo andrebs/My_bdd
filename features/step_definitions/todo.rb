@@ -3,25 +3,25 @@ Dado('acesso {string}') do |funcionalidade|
   end
 
 Quando('adiciono {string}') do |tipo_teste|
-    @todo.additem(tipo_teste)
+    @todo.adiciona_tarefa(tipo_teste)
 end
 
-Quando('seleciono para excluir item') do
+Entao('devo ver item adicionado na lista ToDo') do
+    @todo.validate_todo
+end
+
+Quando('concluo a tarefa') do
+    @todo.concluir_tarefa
+end
+
+Entao('devo ver item concluído em lista Done') do
+    @todo.validate_done
+end
+
+Quando('clico para remover tarefa') do
     @todo.removertarefa
 end
 
-Entao('devo ver item adicionado na lista Done') do
-    @todo.validate_todo_list()
-end
-
-Entao('devo ver itens adicionados na lista Done') do
-    @todo.validate_todo_list()
-end
-
-Entao('devo ver item nao foi adicionado em lista Done') do
-    @todo.validate_todo_list()
-end
-
-Entao('não devo ver item na lista Done') do
-    @todo.validate_todo_list()
+Entao('devo ver tarefa removida com sucesso') do
+    @todo
 end
