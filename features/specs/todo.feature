@@ -11,15 +11,19 @@ Contexto: Acessar a página de TO DO
     Dado acesso "ToDo"
 
 Cenario: Adicionar uma tarefa
-    Quando adiciono "item"
-    Entao devo ver item adicionado na lista ToDo
+    Quando adiciono "tarefa"
+    Entao devo ver tarefa adicionado na lista ToDo
+
+Cenario: Adicionar varias tarefas
+    Quando adiciono "tarefas"
+    Entao devo ver tarefa adicionado na lista ToDo
 
 Cenario: Concluir uma tarefa
-    Quando adiciono "item"
+    Quando adiciono "tarefa"
     E concluo a tarefa
-    Entao devo ver item concluído em lista Done
+    Entao devo ver tarefa concluído em lista Done
 
 Cenario: Remover uma tarefa
-    Quando adiciono "item"
+    Quando adiciono "tarefa"
     E clico para remover tarefa
     Entao devo ver tarefa removida com sucesso

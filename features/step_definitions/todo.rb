@@ -6,7 +6,7 @@ Quando('adiciono {string}') do |tipo_teste|
     @todo.adiciona_tarefa(tipo_teste)
 end
 
-Entao('devo ver item adicionado na lista ToDo') do
+Entao('devo ver tarefa adicionado na lista ToDo') do
     @todo.validate_todo
 end
 
@@ -14,7 +14,7 @@ Quando('concluo a tarefa') do
     @todo.concluir_tarefa
 end
 
-Entao('devo ver item concluído em lista Done') do
+Entao('devo ver tarefa concluído em lista Done') do
     @todo.validate_done
 end
 

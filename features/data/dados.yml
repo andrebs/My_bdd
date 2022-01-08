@@ -1,8 +1,3 @@
-item:
-  massa: 'one item'
-
-mais de um item:
-  massa: 'one; two; three; four; five; testeone'
-  
-nenhum item:
-  massa: ''
+tarefas:
+  massa: 'one; two; three; four; five'
+  validate_massa: 'one,two,three,four,five'

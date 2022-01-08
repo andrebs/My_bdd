@@ -17,7 +17,7 @@ class TodoPage < SitePrism::Page
 
     def adiciona_tarefa(tipo_teste)
         case tipo_teste
-        when "item"
+        when "tarefa"
             main_page.input_texto.set $task
             main_page.btn_criar_task.click
         else
@@ -34,15 +34,16 @@ class TodoPage < SitePrism::Page
         main_page.btn_delete_task[0].click
     end
 
-    def searchitem(tipo_teste)
+    def searchtarefa(tipo_teste)
         main_page.done.click
 
         case tipo_teste
-        when "item"
+        when "tarefa"
             main_page.search_task.set $task
         else
             main_page.search_task.set(INFO[tipo_teste]["massa"])
         end
+        
     end
 
     def validate_todo
@@ -56,6 +57,6 @@ class TodoPage < SitePrism::Page
     end
 
     def validatarefaremovida
-        assert_text($task) => false
+        assert_no_text($task)
     end
 end
