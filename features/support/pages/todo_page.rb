@@ -1,3 +1,5 @@
+include RSpec::Matchers
+
 class TodoPage < SitePrism::Page
 
     section :main_page, "#app" do
@@ -5,11 +7,15 @@ class TodoPage < SitePrism::Page
         element :input_texto, "input[type=text]"
         element :delete_texto, "button[type=reset]"
         element :btn_criar_task, "button[type=submit]"
+        element :search_task, "input[type=search]"
         elements :task_cadastrada, "li span"
+        elements :btn_delete_task, "li button"
+        elements :btn_delete_done_task, "#app > section > ul > li:nth-child(1) > button > i" 
+        elements :btn_concluir_task, "input[type=checkbox]"
     end
 
 
-    def additem(tipo_teste)
+    def adiciona_tarefa(tipo_teste)
         case tipo_teste
         when "item"
             main_page.input_texto.set $task
@@ -20,16 +26,36 @@ class TodoPage < SitePrism::Page
         end
     end
 
-    def removepreitem(tipo_teste)
-        
+    def concluir_tarefa
+        main_page.btn_concluir_task[0].click
+    end
+
+    def removertarefa
+        main_page.btn_delete_task[0].click
     end
 
     def searchitem(tipo_teste)
         main_page.done.click
-        main_page.searchtask.set(INFO[tipo_teste]["massa"])
+
+        case tipo_teste
+        when "item"
+            main_page.search_task.set $task
+        else
+            main_page.search_task.set(INFO[tipo_teste]["massa"])
+        end
     end
 
-    def validate_todo_list
+    def validate_todo
         expect(main_page.task_cadastrada[0].text).to start_with $task
+        assert_text($task)
+    end
+
+    def validate_done
+        main_page.btn_acao[1].click
+        assert_text($task)
+    end
+
+    def validatarefaremovida
+        assert_text($task) => false
     end
 end
