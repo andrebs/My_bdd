@@ -23,5 +23,5 @@ Quando('clico para remover tarefa') do
 end
 
 Entao('devo ver tarefa removida com sucesso') do
-    @todo
+    @todo.validatarefaremovida
 end
