@@ -9,8 +9,9 @@ class TodoPage < SitePrism::Page
         element :btn_criar_task, "button[type=submit]"
         element :search_task, "input[type=search]"
         elements :task_cadastrada, "li span"
-        elements :btn_delete_task, "li button" 
-
+        elements :btn_delete_task, "li button"
+        elements :btn_delete_done_task, "#app > section > ul > li:nth-child(1) > button > i" 
+        elements :btn_concluir_task, "input[type=checkbox]"
     end
 
 
@@ -26,13 +27,11 @@ class TodoPage < SitePrism::Page
     end
 
     def concluir_tarefa
-        main_page.task_cadastrada[0].click
-        btn_acao[1].click
-        assert_text($task)
+        main_page.btn_concluir_task[0].click
     end
 
     def removertarefa
-        main_page.btn_delete_task.click
+        main_page.btn_delete_task[0].click
     end
 
     def searchitem(tipo_teste)
@@ -40,9 +39,9 @@ class TodoPage < SitePrism::Page
 
         case tipo_teste
         when "item"
-            main_page.searchtask.set $task
+            main_page.search_task.set $task
         else
-            main_page.searchtask.set(INFO[tipo_teste]["massa"])
+            main_page.search_task.set(INFO[tipo_teste]["massa"])
         end
     end
 
@@ -52,6 +51,7 @@ class TodoPage < SitePrism::Page
     end
 
     def validate_done
+        main_page.btn_acao[1].click
         assert_text($task)
     end
 
