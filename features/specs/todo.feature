@@ -27,3 +27,7 @@ Cenario: Remover uma tarefa
     Quando adiciono "tarefa"
     E clico para remover tarefa
     Entao devo ver tarefa removida com sucesso
+
+Cenario: Cancelar adição de tarefa
+    Quando adiciono "tarefa a cancelar"
+    Entao nao devo ver tarefa adicionado na lista ToDo

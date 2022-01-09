@@ -25,3 +25,7 @@ end
 Entao('devo ver tarefa removida com sucesso') do
     @todo.validatarefaremovida
 end
+
+Entao('nao devo ver tarefa adicionado na lista ToDo') do
+    @todo.validatarefaremovida
+end

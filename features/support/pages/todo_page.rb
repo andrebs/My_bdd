@@ -20,6 +20,9 @@ class TodoPage < SitePrism::Page
         when "tarefa"
             main_page.input_texto.set $task
             main_page.btn_criar_task.click
+        when "tarefa a cancelar"
+            main_page.input_texto.set $task
+            main_page.delete_texto.click            
         else
             main_page.input_texto.set(INFO[tipo_teste]["massa"])
             main_page.btn_criar_task.click
