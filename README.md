@@ -12,8 +12,8 @@ We have the scenarios at features >> specs
 
 <h2>Running the tests</h2>
 
-- Save the repository to a local folder, them on the terminal, run <strong>$bundle install</strong>
-- Then run <strong>$cucumber</strong>
+- Save the repository to a local folder, them on the terminal, run <code>$bundle install</code>
+- Then run <code>$cucumber</code>
 
 <h2>Env</h2>
 
