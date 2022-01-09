@@ -1,3 +1,2 @@
 tarefas:
-  massa: 'one; two; three; four; five'
-  validate_massa: 'one,two,three,four,five'
+  massa: 'one;two;three;four;five'

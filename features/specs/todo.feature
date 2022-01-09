@@ -12,11 +12,11 @@ Contexto: Acessar a página de TO DO
 
 Cenario: Adicionar uma tarefa
     Quando adiciono "tarefa"
-    Entao devo ver tarefa adicionado na lista ToDo
+    Entao devo ver "tarefa" adicionado na lista ToDo
 
 Cenario: Adicionar varias tarefas
     Quando adiciono "tarefas"
-    Entao devo ver tarefa adicionado na lista ToDo
+    Entao devo ver "tarefas" adicionado na lista ToDo
 
 Cenario: Concluir uma tarefa
     Quando adiciono "tarefa"

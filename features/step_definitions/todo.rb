@@ -7,7 +7,11 @@ Quando('adiciono {string}') do |tipo_teste|
 end
 
 Entao('devo ver tarefa adicionado na lista ToDo') do
-    @todo.validate_todo
+    @todo.validate_todo(tipo_teste)
+end
+
+Entao('devo ver {string} adicionado na lista ToDo') do |result_todo|
+    @todo.validate_todo(result_todo)
 end
 
 Quando('concluo a tarefa') do

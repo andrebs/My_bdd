@@ -22,7 +22,10 @@ class TodoPage < SitePrism::Page
             main_page.btn_criar_task.click
         when "tarefa a cancelar"
             main_page.input_texto.set $task
-            main_page.delete_texto.click            
+            main_page.delete_texto.click       
+        when "tarefas"
+            main_page.input_texto.set(INFO[tipo_teste]["massa"])
+            main_page.btn_criar_task.click
         else
             main_page.input_texto.set(INFO[tipo_teste]["massa"])
             main_page.btn_criar_task.click
@@ -49,9 +52,19 @@ class TodoPage < SitePrism::Page
         
     end
 
-    def validate_todo
-        expect(main_page.task_cadastrada[0].text).to start_with $task
-        assert_text($task)
+    def validate_todo(result_todo)
+        case result_todo
+        when "tarefas"
+            i = 0
+            arr = INFO[result_todo]["massa"].split(";")
+            while i < arr.count do
+                assert_text(arr[i])
+                i += 1
+            end
+        else
+            expect(main_page.task_cadastrada[0].text).to start_with $task
+            assert_text($task)
+        end
     end
 
     def validate_done
