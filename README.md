@@ -15,6 +15,12 @@ We have the scenarios at features >> specs
 - Save the repository to a local folder, them on the terminal, run <code>$bundle install</code>
 - Then run <code>$cucumber</code>
 
+<h2>Page Objects</h2>
+We have Objects at features >> support >> pages
+
+<h2>Data</h2>
+We have Data at features >> data
+
 <h2>Env</h2>
 
 - Ruby 3.0.3
