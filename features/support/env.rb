@@ -22,7 +22,7 @@ Capybara.register_driver :selenium do |app|
 end
 
 Capybara.configure do |config|
-    config.default_driver = :selenium_chrome #_headless
+    config.default_driver = :selenium_chrome
     config.default_max_wait_time= 30
     config.app_host = ENV["url_padrao"]
     Capybara::Screenshot.autosave_on_failure = false
