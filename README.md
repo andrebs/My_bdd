@@ -27,3 +27,7 @@ We have the scenarios at features >> specs
 - dotenv
 - faker
 - rspec/expectations
+
+<h2>Driver</h2>
+
+- ChromeDriver 97.0.4692.71
