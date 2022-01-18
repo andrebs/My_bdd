@@ -1,4 +1,5 @@
 <h1>Getting Started</h1>
+
 We have:
 - Scenarios at features >> specs
 - Steps at features >> steps
