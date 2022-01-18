@@ -1,5 +1,9 @@
 <h1>Getting Started</h1>
-We have the scenarios at features >> specs
+We have:
+- Scenarios at features >> specs
+- Steps at features >> steps
+- Page objects at features >> support >> pages
+- Data at features >> data
 
 <h2>Scenarios</h2>
 
