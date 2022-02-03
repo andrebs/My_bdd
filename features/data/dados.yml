@@ -1,2 +1,9 @@
-tarefas:
-  massa: 'one;two;three;four;five'
+mensagens:
+  cadastro: 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+  nome: 'É necessário informar o nome'
+  cpf: 'É necessário informar o CPF'
+  email: 'É necessário informar o email'
+  cep: 'É necessário informar o CEP'
+  numero: 'É necessário informar o número do endereço'
+  metodo_entrega: 'Selecione o método de entrega'
+  cnh: 'Adicione uma foto da sua CNH'

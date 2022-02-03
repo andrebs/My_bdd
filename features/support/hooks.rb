@@ -1,4 +1,4 @@
 Before do 
-    @todo = TodoPage.new
-    @url = SiteUrl.new
-  end
+    @mainbugereats = MainBugerEats.new
+    @cadastrobugereats = CadastroBugerEats.new
+end
