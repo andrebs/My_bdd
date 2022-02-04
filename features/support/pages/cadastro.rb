@@ -47,7 +47,6 @@ class CadastroBugerEats < SitePrism::Page
     end
 
     def informadados()
-        binding.pry
         dados.nome_completo.set $nome_completo
         dados.cpf.set $cpf
         dados.email.set $email
@@ -59,7 +58,7 @@ class CadastroBugerEats < SitePrism::Page
         dados.complemento.set $complemento
 
 
-        attach_file(dados.upload_cnh, $upload_cnh)
+        #attach_file(dados.upload_cnh, $upload_cnh)
         #attach_file(dados.upload_cnh,'./features/data/cnh-digital.jpg', make_visible:true)
     end
 
