@@ -1,21 +1,17 @@
 include RSpec::Matchers
 
 class MainBugerEats < SitePrism::Page
-    set_url "https://buger-eats-qa.vercel.app"
 
     section :main_buger_eats, "#page-home" do
-        element :logo, "img"
-        element :title, "h1"
-        element :subtitle, "p"
-        element :btn_cadastre, "a"
+        element :logo, 'img'
+        element :title, 'h1'
+        element :subtitle, 'p'
+        element :btn_cadastre, 'a'
+        element :btn, 'strong["Cadastre-se para fazer entregas"]'
     end
 
     section :element_convidado, "#page-deliver" do
-        element :volta_home, "a"
-    end
-
-    def acessarWeb()
-        load
+        element :volta_home, 'a'
     end
 
     def validalogo()

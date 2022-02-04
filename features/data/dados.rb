@@ -1,10 +1,9 @@
 Before "@dados" do
-
   # Mensagens de validação
   MSG = YAML.load_file('./features/data/dados.yml')
 
   # Dados Cadastro
-  $nome_completo = Faker::Lorem.sentence
+  $nome_completo = Faker::FunnyName.name
   $cpf = Faker::IDNumber.brazilian_citizen_number
   $email = Faker::Internet.email
   $whatsapp = Faker::Number.number(digits: 11)
@@ -15,7 +14,7 @@ Before "@dados" do
   $complemento = Faker::Address.secondary_address
 
   #Foto CNH
-  CNH = load_file('./features/data/cnh-digital.jpg')
-  
+  #CNH = load_file('./features/data/cnh-digital.jpg')
+
 end
   

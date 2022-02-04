@@ -1,7 +1,6 @@
 include RSpec::Matchers
 
 class CadastroBugerEats < SitePrism::Page
-    set_url "/deliver"
 
     section :dados, "#page-deliver" do
 
@@ -36,29 +35,15 @@ class CadastroBugerEats < SitePrism::Page
         element :modal_validacao, 'body > div.swal2-container.swal2-center.swal2-backdrop-show > div'
         element :botao_fechar, 'body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-confirm.swal2-styled'
 
-    end
-
-    section :validacao, "#page-deliver" do
         #campos obrigatorios
-        #Dados
-        element :nome_completo, 'input[name="fullName"]'
-        element :cpf, 'input[name="cpf"]'
-        element :email, 'input[name="email"]'
-
-        #Endereço
-        element :cep, 'input[name="postalcode"]'
-        element :numero, 'input[name="address-number"]'
-
-        #Metodo de Entrega
-        elements :metodo_entrega, 'delivery-method li'
-
-        #upload de cnh
-        element :upload_cnh, 'input[type="file"]'
-
+        element :campos_obrigatorio, 'span[class="alert-error"]'
     end
 
-    def acessarCadastro()
-        load(set_url)
+    section :validacao, "#swal2-html-container" do
+
+        #cadastro realizado
+        element :cadastro_realizado, 'div[id="swal2-html-container"]'
+
     end
 
     def informadados()
@@ -82,9 +67,14 @@ class CadastroBugerEats < SitePrism::Page
         dados.cadastre_se_button.click
     end
 
-    def validaresultado
-        expect(dados.algumacoisa.text).to include (MSG['mensagens']['cadastro'])
-        expect(element_convidado.volta_home.text).to eql (MSG['mensagens']['cadastro'])
+    def validaregra()
+        expect(dados.campos_obrigatorio.text).to include (MSG['mensagens']['cadastro'])
+        expect(dados.campos_obrigatorio.text).to eql (MSG['mensagens']['cadastro'])
+    end
+
+    def validacadastro
+        expect(validacao.cadastro_realizado.text).to include (MSG['mensagens']['cadastro'])
+        expect(validacao.cadastro_realizado.text).to eql (MSG['mensagens']['cadastro'])
     end
 
 end

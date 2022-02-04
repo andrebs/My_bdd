@@ -1,7 +1,6 @@
 include RSpec::Matchers
 
 class TodoPage < SitePrism::Page
-    set_url "https://buger-eats-qa.vercel.app"
 
     section :main_page, "#app" do
         elements :btn_acao, "nav a"

@@ -8,15 +8,6 @@ require "dotenv"
 require "faker"
 require "rspec/expectations"
 
-INFO = YAML.load_file('./features/data/dados.yml')
-
-if ENV["ENV"]
-    puts "Iniciando o teste no ambiente"
-    Dotenv.load("environment/.env." + ENV["ENV"], ".env")
-else
-    Dotenv.load(".env")
-end
-
 Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
@@ -24,7 +15,7 @@ end
 Capybara.configure do |config|
     config.default_driver = :selenium_chrome
     config.default_max_wait_time= 30
-    config.app_host = ENV["url_padrao"]
+    #config.app_host = "https://buger-eats-qa.vercel.app"
     Capybara::Screenshot.autosave_on_failure = false
     Capybara.page.driver.browser.manage.window.maximize
 end

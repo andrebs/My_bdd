@@ -1,5 +1,5 @@
 Dado('acesso {string}') do |funcionalidade|
-    @mainbugereats.acessarWeb
+    @SiteUrl.acessarWeb(funcionalidade)
 end
 
 Entao('devo ver logo da página com sucesso') do
