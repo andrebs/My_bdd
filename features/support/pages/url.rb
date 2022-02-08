@@ -1,7 +1,7 @@
 include RSpec::Matchers
 
 class SiteUrl < SitePrism::Page
-    set_url "https://buger-eats-qa.vercel.app"
+    set_url ENV["url_padrao"] #"https://buger-eats-qa.vercel.app"
     
     def acessarWeb(funcionalidade)
         case funcionalidade 

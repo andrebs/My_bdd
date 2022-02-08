@@ -4,9 +4,17 @@ require 'capybara-screenshot'
 require 'capybara-screenshot/cucumber'
 require 'pry'
 require 'site_prism'
-require "dotenv"
-require "faker"
-require "rspec/expectations"
+require 'dotenv'
+require 'faker'
+require 'rspec/expectations'
+
+if ENV["ENV"]
+    puts "Iniciando o teste no ambiente"
+    Dotenv.load("environment/.env." + ENV["ENV"], ".env")
+else
+    Dotenv.load(".env")
+end
+  
 
 Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
